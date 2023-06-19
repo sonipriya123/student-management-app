@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {%include 'cdnlines.html'%}
+    <title></title>
+  </head>
+  <body>
+    <div class='container'>
+      <h1 class='text-center display-2'>nth students data base</h1>
+      <div class='text-right'>
+        <a href="{%url 'display'%}" class='btn-success btn-lg btn '>add new student</a>
+      </div>
+      {%if data%}
+      <table class='table mt-4 table-bordered text-center'>
+        <thead class='bg-success text-white'>
+          <tr>
+            <th>first name</th>
+            <th>last name</th>
+            <th>mobile</th>
+            <th>email</th>
+            <th>actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in data%}
+          <tr>
+            <td>{{i.firstname}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.mobile}}</td>
+            <td>{{i.email}}</td>
+            <td>
+              <a href="{%url 'update' i.id%}" class="btn btn-primary">update</a>
+              <a href="{%url 'delete' i.id%}" class="btn btn-danger">delete</a>
+            </td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+      {%endif%}
+    </div>
+  </body>
+</html>

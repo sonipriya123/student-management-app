@@ -1,0 +1,42 @@
+{%load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {%include 'cdnlines.html'%}
+    <title></title>
+  </head>
+  <style>
+  body{
+    background-image: url('{%static "images/bg1.jpg"%}');
+  }
+  form{
+    background-color: white;
+    border:2px solid;
+    margin-top:40px;
+    padding:10px;
+  }
+
+  </style>
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='offset-md-4 col-md-4'>
+          <form method='POST'>
+            {%csrf_token%}
+            <label>firstname:</label>
+            <input type='text'  name='fname' class='form-control' value='{{abcd.firstname}}'>
+            <label>lastname:</label>
+            <input type='text' name='lname' class='form-control' value='{{abcd.lastname}}'>
+            <label>mobile:</label>
+            <input type='number' name='mobile' class='form-control' value='{{abcd.mobile}}' >
+            <label>email:</label>
+            <input type='email' name='email' class='form-control' value='{{abcd.email}}'>
+            <center>
+            <input type='submit' value='update' class='btn-outline-success btn-sm btn mt-2'>
+            <input type='reset' value='clear' class='btn-outline-danger btn-sm btn mt-2'>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
